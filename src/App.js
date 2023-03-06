@@ -81,8 +81,6 @@ const App = () => {
 
   const addToCartAPI = () => {
     console.log("API is called");
-    console.log("API is called");
-
   }
 
   return (
