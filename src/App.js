@@ -2,7 +2,7 @@
 // import Titles from './components/Titles'
 // import Form from './components/Form'
 // import Weather from './components/Weather'
- 
+
 //  const API_KEY ="052c4b1b14432e85da659cf29b212ed8";
 
 //  class App extends React.Component {
@@ -41,7 +41,7 @@
 //       error: "Please enter the value"
 //     })
 //     }
-    
+
 //   }
 
 //   render(){
@@ -75,8 +75,8 @@
 //  }
 
 import React from 'react';
-import Form from './components/Form'
 import axios from 'axios'
+import Card from './components/Card';
 
 const GQL_PREVIEW_URL = `https://mycheckoutv2.test.devappdirect.me/api/graphql/preview`
 
@@ -95,8 +95,8 @@ const token = "eyJraWQiOiJjMmNlYjk0MC1hZGU4LTQ3ZDktYTI0My05ZGQ4ZWM3OTY1ZWMiLCJhb
 
 const App = () => {
 
-  const addToCartAPI = () => {
-    let data = JSON.stringify({
+	const addToCartAPI = () => {
+		let data = JSON.stringify({
 			query: 'mutation addItemsToCart($input: AddItemsInput!) {addItemsToCart(input: $input) {cart {id,items {id}}}}',
 			variables: { input }
 		})
@@ -107,10 +107,10 @@ const App = () => {
 			headers: {
 				'AD-Tenant': TENANT,
 				'Content-Type': 'application/json',
-        'Ad-Authorization' : `Bearer ${token}`
+				'Ad-Authorization': `Bearer ${token}`
 			},
 			data
-		}		
+		}
 		axios(config)
 			.then((response) => {
 				console.log(JSON.stringify(response.data))
@@ -119,20 +119,40 @@ const App = () => {
 			.catch((error) => {
 				console.log(error)
 			})
-  }
+	}
 
-  return (
-    <React.Fragment>
-      <div>
-        Helo
-      </div>
-      <Form addToCartAPI={addToCartAPI} />
-    </React.Fragment>
-    
+	return (
+		<React.Fragment>
+			<h1 style={{ textAlign: 'center' }}>Very awesome shopping website</h1>
+			<div style={{
+				display: 'flex',
+				maxWidth: '1080px',
+				flexWrap: 'wrap',
+				gap: '1em',
+				margin: '0 auto',
 
-  )
+			}}>
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+				<Card addToCartAPI={addToCartAPI} />
+			</div>
+		</React.Fragment>
+
+
+	)
 }
 
 export default App;
 
-       
