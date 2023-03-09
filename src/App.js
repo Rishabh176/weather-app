@@ -77,6 +77,7 @@
 import React from 'react';
 import axios from 'axios'
 import Card from './components/Card';
+import logoImg from './images/logo.png'
 
 const GQL_PREVIEW_URL = `https://mycheckoutv2.test.devappdirect.me/api/graphql/preview`
 
@@ -123,12 +124,23 @@ const App = () => {
 
 	return (
 		<>
-			<h1 style={{
-				textAlign: 'center',
-				background: 'rgb(0, 118, 206)',
-				color: 'white',
-				padding: '1em'
-			}}>External Test MarketPlace</h1>
+			<div
+				style={{
+					textAlign: 'center',
+					background: 'rgb(0, 118, 206)',
+					color: 'white',
+					display: 'flex',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+					paddingInline: '6em',
+				}}>
+				<img style={{ height: '100px', }} src={logoImg} alt='logo' />
+				<div>
+					<a href="/">
+						<h2>Login</h2>
+					</a>
+				</div>
+			</div>
 			<div style={{
 				minHeight: '70vh',
 				display: 'flex',
