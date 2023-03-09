@@ -1,7 +1,7 @@
 import React from 'react'
 import Form from './Form'
 
-const Card = ({addToCartAPI}) => {
+const Card = ({addToCartAPI, imgUrl, heading}) => {
   return (
     <div style={{
       border: '1px solid',
@@ -9,8 +9,13 @@ const Card = ({addToCartAPI}) => {
       padding: '1em'
     }}>
       <div>
-        <h3>Product heading</h3>
-        <img src="https://source.unsplash.com/random/300x300/?product" alt="" />
+        <h3>{heading}</h3>
+        <img style={{
+          marginBlock: '1em',
+          aspectRatio: '1 / 1',
+          width: '200px',
+          objectFit: 'cover',
+        }} src={imgUrl} alt="" />
       </div>
       <Form addToCartAPI={addToCartAPI}/>
     </div>

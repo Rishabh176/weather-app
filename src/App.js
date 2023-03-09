@@ -122,33 +122,38 @@ const App = () => {
 	}
 
 	return (
-		<React.Fragment>
-			<h1 style={{ textAlign: 'center' }}>Very awesome shopping website</h1>
+		<>
+			<h1 style={{
+				textAlign: 'center',
+				background: 'rgb(0, 118, 206)',
+				color: 'white',
+				padding: '1em'
+			}}>External Test MarketPlace</h1>
 			<div style={{
+				minHeight: '70vh',
 				display: 'flex',
-				maxWidth: '1080px',
-				flexWrap: 'wrap',
-				gap: '1em',
-				margin: '0 auto',
-
+				flexDirection: 'column',
+				justifyContent: 'center'
 			}}>
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
-				<Card addToCartAPI={addToCartAPI} />
+				<div style={{
+					display: 'flex',
+					maxWidth: '1080px',
+					gap: '1em',
+					margin: '0 auto',
+					minHeight: '400px',
+					overflow: 'scroll',
+					alignItems: 'center',
+				}}>
+					<Card addToCartAPI={addToCartAPI} heading='Microsoft 365' imgUrl='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg/2048px-Microsoft_Office_logo_%282019%E2%80%93present%29.svg.png' />
+					<Card addToCartAPI={addToCartAPI} heading='Microsoft 365 NEW' imgUrl='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/560px-Microsoft_365_%282022%29.svg.png' />
+					<Card addToCartAPI={addToCartAPI} heading='Google Workspace' imgUrl='https://beehive.ba/wp-content/uploads/2013/10/Google-Workspace-logos-CR.jpg' />
+					<Card addToCartAPI={addToCartAPI} heading='Godaddy Domains' imgUrl='https://pbs.twimg.com/profile_images/1278344282793840640/5nxHLp8o_400x400.jpg' />
+					<Card addToCartAPI={addToCartAPI} heading='PostMan' imgUrl='https://yt3.googleusercontent.com/X-rhKMndFm9hT9wIaJns1StBfGbFdLTkAROwm4UZ3n9ucrBky5CFIeeZhSszFXBgQjItzCD0SA=s900-c-k-c0x00ffffff-no-rj' />
+					<Card addToCartAPI={addToCartAPI} heading='Cisco Webex' imgUrl='https://res.cloudinary.com/apideck/image/upload/v1646261331/marketplaces/ckp6oizgbgvm00a49vicntn6d/listings/webex-symbol-color_g7rrxa.png' />
+					<Card addToCartAPI={addToCartAPI} heading='Slack for enterprise' imgUrl='https://yt3.googleusercontent.com/ytc/AL5GRJUyNSclWVdzjF267_EFUDHth4IXcUlcQCjEfNTvSw=s900-c-k-c0x00ffffff-no-rj' />
+				</div>
 			</div>
-		</React.Fragment>
+		</>
 
 
 	)
