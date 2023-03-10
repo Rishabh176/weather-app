@@ -2,7 +2,7 @@
 // import Titles from './components/Titles'
 // import Form from './components/Form'
 // import Weather from './components/Weather'
- 
+
 //  const API_KEY ="052c4b1b14432e85da659cf29b212ed8";
 
 //  class App extends React.Component {
@@ -41,7 +41,7 @@
 //       error: "Please enter the value"
 //     })
 //     }
-    
+
 //   }
 
 //   render(){
@@ -75,8 +75,9 @@
 //  }
 
 import React from 'react';
-import Form from './components/Form'
 import axios from 'axios'
+import Card from './components/Card';
+import logoImg from './images/logo.png'
 
 const GQL_PREVIEW_URL = `https://mycheckoutv2.test.devappdirect.me/api/graphql/preview`
 
@@ -95,8 +96,8 @@ const token = "eyJraWQiOiIwNWFhMGQ3OS0yNTc2LTQyZWMtODkwYi0wNzc3NTM1YjViYjEiLCJhb
 
 const App = () => {
 
-  const addToCartAPI = () => {
-    let data = JSON.stringify({
+	const addToCartAPI = () => {
+		let data = JSON.stringify({
 			query: 'mutation addItemsToCart($input: AddItemsInput!) {addItemsToCart(input: $input) {cart {id,items {id}}}}',
 			variables: { input }
 		})
@@ -107,10 +108,10 @@ const App = () => {
 			headers: {
 				'AD-Tenant': TENANT,
 				'Content-Type': 'application/json',
-        'Ad-Authorization' : `Bearer ${token}`
+				'Ad-Authorization': `Bearer ${token}`
 			},
 			data
-		}		
+		}
 		axios(config)
 			.then((response) => {
 				console.log(JSON.stringify(response.data))
@@ -119,20 +120,56 @@ const App = () => {
 			.catch((error) => {
 				console.log(error)
 			})
-  }
+	}
 
-  return (
-    <React.Fragment>
-      <div>
-        Helo
-      </div>
-      <Form addToCartAPI={addToCartAPI} />
-    </React.Fragment>
-    
+	return (
+		<>
+			<div
+				style={{
+					textAlign: 'center',
+					background: 'rgb(0, 118, 206)',
+					color: 'white',
+					display: 'flex',
+					justifyContent: 'space-between',
+					alignItems: 'center',
+					paddingInline: '6em',
+				}}>
+				<img style={{ height: '100px', }} src={logoImg} alt='logo' />
+				<div>
+					<a href="/">
+						<h2>Login</h2>
+					</a>
+				</div>
+			</div>
+			<div style={{
+				minHeight: '70vh',
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'center'
+			}}>
+				<div style={{
+					display: 'flex',
+					maxWidth: '1080px',
+					gap: '1em',
+					margin: '0 auto',
+					minHeight: '400px',
+					overflow: 'scroll',
+					alignItems: 'center',
+				}}>
+					<Card addToCartAPI={addToCartAPI} heading='Microsoft 365' imgUrl='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg/2048px-Microsoft_Office_logo_%282019%E2%80%93present%29.svg.png' />
+					<Card addToCartAPI={addToCartAPI} heading='Slack for enterprise' imgUrl='https://yt3.googleusercontent.com/ytc/AL5GRJUyNSclWVdzjF267_EFUDHth4IXcUlcQCjEfNTvSw=s900-c-k-c0x00ffffff-no-rj' />
+					<Card addToCartAPI={addToCartAPI} heading='Microsoft 365 NEW' imgUrl='https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/560px-Microsoft_365_%282022%29.svg.png' />
+					<Card addToCartAPI={addToCartAPI} heading='Google Workspace' imgUrl='https://beehive.ba/wp-content/uploads/2013/10/Google-Workspace-logos-CR.jpg' />
+					<Card addToCartAPI={addToCartAPI} heading='Godaddy Domains' imgUrl='https://pbs.twimg.com/profile_images/1278344282793840640/5nxHLp8o_400x400.jpg' />
+					<Card addToCartAPI={addToCartAPI} heading='PostMan' imgUrl='https://yt3.googleusercontent.com/X-rhKMndFm9hT9wIaJns1StBfGbFdLTkAROwm4UZ3n9ucrBky5CFIeeZhSszFXBgQjItzCD0SA=s900-c-k-c0x00ffffff-no-rj' />
+					<Card addToCartAPI={addToCartAPI} heading='Cisco Webex' imgUrl='https://res.cloudinary.com/apideck/image/upload/v1646261331/marketplaces/ckp6oizgbgvm00a49vicntn6d/listings/webex-symbol-color_g7rrxa.png' />
+				</div>
+			</div>
+		</>
 
-  )
+
+	)
 }
 
 export default App;
 
-       
