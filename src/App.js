@@ -116,11 +116,11 @@ const App = () => {
 		}
 		axios(config)
 			.then((response) => {
-				console.log(JSON.stringify(response.data))
+				console.log("respone---->", JSON.stringify(response.data))
 				window.open(`https://mycheckoutv2.test.devappdirect.me/checkout/cart/?jsessionID=${JSESSIONID}&xsrfToken=${XSRFTOKEN}`);
 			})
 			.catch((error) => {
-				console.log(error)
+				console.log("error--->", error)
 			})
 	}
 
